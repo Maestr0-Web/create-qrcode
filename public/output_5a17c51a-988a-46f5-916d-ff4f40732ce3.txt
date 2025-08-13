@@ -1,0 +1,6 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Abdullah-albadani
+TEL:770020496
+EMAIL:bbdallhamynalbdany@gmail.com
+END:VCARD

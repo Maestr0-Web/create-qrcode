@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>مولد QR Code</title>
+</head>
+<body>
+    <h1>إنشاء QR Code</h1>
+    <form action="/made" method="post">
+        <label for="type">نوع QR:</label>
+        <select name="type" id="type">
+            <option value="text">نص عادي</option>
+            <option value="url">رابط URL</option>
+            <option value="vcard">vCard</option>
+            <option value="wifi">Wi-Fi</option>
+        </select>
+        <br><br>
+
+        <!-- النص أو الرابط -->
+        <label for="information">النص/الرابط:</label><br>
+        <textarea name="information" id="information" rows="5" cols="40"></textarea><br><br>
+
+        <!-- حقول vCard -->
+        <div id="vcard-fields" style="display:none;">
+            <label>الاسم الكامل:</label>
+            <input type="text" name="name"><br>
+            <label>الهاتف:</label>
+            <input type="text" name="phone"><br>
+            <label>البريد الإلكتروني:</label>
+            <input type="email" name="email"><br><br>
+        </div>
+
+        <!-- حقول Wi-Fi -->
+        <div id="wifi-fields" style="display:none;">
+            <label>اسم الشبكة (SSID):</label>
+            <input type="text" name="ssid"><br>
+            <label>كلمة المرور:</label>
+            <input type="text" name="password"><br><br>
+        </div>
+
+        <button type="submit">إنشاء QR</button>
+    </form>
+
+    <script>
+        const typeSelect = document.getElementById('type');
+        const vcardFields = document.getElementById('vcard-fields');
+        const wifiFields = document.getElementById('wifi-fields');
+
+        typeSelect.addEventListener('change', () => {
+            vcardFields.style.display = 'none';
+            wifiFields.style.display = 'none';
+            if(typeSelect.value === 'vcard') vcardFields.style.display = 'block';
+            if(typeSelect.value === 'wifi') wifiFields.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
