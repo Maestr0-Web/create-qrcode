@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
